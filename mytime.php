@@ -6,7 +6,7 @@ class MyTime {
     private $second;
 
     public function __construct($hour=0, $minute=0, $second=0) {
-        $this->hour = $hour;
+        $this->setHour($hour);
         $this->minute = $minute;
         $this->second = $second;
     }
@@ -16,7 +16,13 @@ class MyTime {
     }
 
     public function setHour($hour) {
-        $this->hour = $hour;
+        if($hour >= 0 && $hour < 24) {
+            $this->hour = $hour;
+        }
+        else {
+            echo "Heure invalide";
+        }
+
     }
 
     public function getMinute() {
@@ -59,7 +65,8 @@ class MyTime {
     }
 }
 
-$timer1 = new MyTime(23,59,59);
+$timer1 = new MyTime(59,70,92);
+$timer1->setHour(12000);
 $timer1->show();
 $timer1->nextSecond();
 $timer1->show();
