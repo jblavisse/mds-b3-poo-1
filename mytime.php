@@ -7,8 +7,8 @@ class MyTime {
 
     public function __construct($hour=0, $minute=0, $second=0) {
         $this->setHour($hour);
-        $this->minute = $minute;
-        $this->second = $second;
+        $this->setMinute($minute);
+        $this->setSecond($second);
     }
 
     public function getHour() {
@@ -30,7 +30,12 @@ class MyTime {
     }
 
     public function setMinute($minute) {
-        $this->minute = $minute;
+        if($minute >= 0 && $minute < 60) {
+            $this->minute = $minute;
+        }
+        else {
+            echo "Minute invalide";
+        }
     }
 
     public function getSecond() {
@@ -38,7 +43,12 @@ class MyTime {
     }
 
     public function setSecond($second) {
-        $this->second = $second;
+        if($second >= 0 && $second < 60) {
+            $this->second = $second;
+        }
+        else {
+            echo "Seconde invalide";
+        }
     }
 
     public function show() {
@@ -65,8 +75,7 @@ class MyTime {
     }
 }
 
-$timer1 = new MyTime(59,70,92);
-$timer1->setHour(12000);
+$timer1 = new MyTime(23,23,23);
 $timer1->show();
 $timer1->nextSecond();
 $timer1->show();
