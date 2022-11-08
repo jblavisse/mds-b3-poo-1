@@ -2,12 +2,21 @@
 
 
 class Rectangle {
-    // $length;
+    private $length;
     // $width;
 
     function __construct($length, $width) {
         $this->length = $length;
         $this->width = $width;
+    }
+
+    function getLength() {
+        return $this->length;
+    }
+
+    function setLength($length) {
+        // Verifier que c'est bien un nombre
+        $this->length = $length;
     }
 
     function getPerimeter() {
@@ -42,3 +51,11 @@ class Rectangle {
 
 $rectangle1 = new Rectangle(10,12);
 $rectangle1->show();
+
+//echo $rectangle1->length;
+echo $rectangle1->getLength();
+
+// $rectangle1->length = 17;
+$rectangle1->setLength(17);
+
+echo $rectangle1->length;
